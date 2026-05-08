@@ -19,7 +19,7 @@ Tanggal pengujian: `2026-05-08`
 ### `POST /chat`
 
 ```json
-{"answer":"Sistem harus berjalan on-premise, mendukung upload PDF, menyediakan endpoint health, ingest, serta chat. Teknologi utama yang dipakai adalah Python, LangChain, FastAPI, ChromaDB, dan Ollama.","sources":["sample.pdf - halaman 1"]}
+{"answer":"Sistem berhasil memproses PDF, menyimpan embedding lokal, dan menjawab pertanyaan berdasarkan konteks dokumen.","sources":["test-rag-document.pdf - halaman 1"]}
 ```
 
 ## Docker Validation
@@ -27,5 +27,5 @@ Tanggal pengujian: `2026-05-08`
 - `docker build -t local-rag-api-test .` berhasil.
 - `docker compose up -d --build` berhasil.
 - `docker compose ps` menunjukkan service `api` dan `ollama` aktif.
-- Setelah server lokal dimatikan, endpoint Docker tetap merespons sukses untuk `health`, `ingest`, dan `chat`.
+- Setelah vector store dibersihkan, endpoint Docker tetap merespons sukses untuk `health`, `ingest`, dan `chat`.
 - Log container API bersih dari warning telemetry setelah `posthog` dipin ke versi kompatibel.
